@@ -150,7 +150,7 @@ async function postPRComment(results, repo, prNumber, octokit, commentWithQuerie
             comment_id: comment.id,
             body: message
         });
-    } else {
+    } else if(results['total_counter']) {
         await octokit.rest.issues.createComment({
             ...repo,
             issue_number: prNumber,
